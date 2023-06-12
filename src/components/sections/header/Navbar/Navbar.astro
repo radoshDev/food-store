@@ -1,0 +1,39 @@
+---
+import NavActions from './NavActions.astro'
+import MenuItem from './MenuItem.astro'
+import Button from '@ui/Button.astro'
+import data from '@data/data.json'
+---
+
+<nav class="container navbar">
+	<div class="inner">
+		<a class="logo" href="#">{data.logo}</a>
+		<ul class="menu">
+			{data.menu.map(nav => <MenuItem title={nav} link="#" />)}
+		</ul>
+		<NavActions />
+		<Button>Order Now</Button>
+	</div>
+</nav>
+
+<style lang="scss">
+	.navbar {
+		position: relative;
+		z-index: 2;
+		.inner {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 4rem 1.8rem;
+			.logo {
+				text-transform: uppercase;
+				font-weight: 900;
+				font-size: 2.2rem;
+			}
+			.menu {
+				display: flex;
+				gap: 2.8rem;
+			}
+		}
+	}
+</style>

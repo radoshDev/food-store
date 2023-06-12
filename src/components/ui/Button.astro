@@ -1,0 +1,29 @@
+---
+import type { ButtonHTMLAttributes } from 'react'
+type Props = {
+	type?: ButtonHTMLAttributes<HTMLButtonElement>['type']
+}
+const props = Astro.props
+---
+
+<button class="btn" {...props}><slot /></button>
+
+<style lang="scss">
+	@import '../../styles/variables.scss';
+	.btn {
+		font-size: 1.6rem;
+		font-weight: 500;
+		font-family: $neue;
+		line-height: 1;
+		padding: 0.989em 2.34375em 1.2em;
+		color: #fff;
+		background-color: $light-green;
+		border-radius: 5em;
+		border: none;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+		&:hover {
+			background-color: $light-green-darker;
+		}
+	}
+</style>

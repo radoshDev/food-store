@@ -1,0 +1,24 @@
+---
+import USFlag from '@ui/icons/USFlag.astro'
+import ShopCart from '@ui/icons/ShopCart.astro'
+import SearchIcon from '@ui/icons/Search.astro'
+---
+
+<div class="nav_actions">
+	<a href="#">
+		<USFlag width={35} />
+	</a>
+	<a href="#">
+		<ShopCart />
+	</a>
+	<button class="icon_btn">
+		<SearchIcon />
+	</button>
+</div>
+
+<style lang="scss">
+	.nav_actions {
+		display: flex;
+		gap: 2.8rem;
+	}
+</style>

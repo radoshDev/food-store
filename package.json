@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "food-shop",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,6 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.5.6"
+    "@astrojs/image": "^0.17.0",
+    "@astrojs/react": "^2.2.1",
+    "@types/react": "^18.2.9",
+    "@types/react-dom": "^18.2.4",
+    "astro": "^2.5.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.63.2",
+    "sharp": "^0.32.1"
   }
 }

@@ -1,0 +1,270 @@
+{
+	"title": "Food Store",
+	"logo": "sway",
+	"menu": [
+		"Demos",
+		"Pages",
+		"Portfolio",
+		"Blog",
+		"Shop",
+		"Blocks",
+		"Elements",
+		"Extra"
+	],
+	"menu-card": [
+		{
+			"title": "Lunch Catering",
+			"id": "lunch_catering",
+			"products": [
+				{
+					"title": "Classic Goulash 1",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "classic-goulash"
+				},
+				{
+					"title": "Classic Italian Spaghetti 1",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "classic-italian-spaghetti"
+				},
+				{
+					"title": "Grilled Chicken 1",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "grilled-chicken"
+				},
+				{
+					"title": "Fried Pork Steak 1",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "fried-pork-steak"
+				},
+				{
+					"title": "Stir Fry Noodles 1",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "stir-fry-noodles"
+				},
+				{
+					"title": "Healthy Salad 1",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "healthy-salad"
+				}
+			]
+		},
+		{
+			"title": "Dinner Catering",
+			"id": "dinner_catering",
+			"products": [
+				{
+					"title": "Classic Goulash 2",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "classic-goulash"
+				},
+				{
+					"title": "Classic Italian Spaghetti 2",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "classic-italian-spaghetti"
+				},
+				{
+					"title": "Grilled Chicken 2",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "grilled-chicken"
+				},
+				{
+					"title": "Fried Pork Steak 2",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "fried-pork-steak"
+				},
+				{
+					"title": "Stir Fry Noodles 2",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "stir-fry-noodles"
+				},
+				{
+					"title": "Healthy Salad 2",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "healthy-salad"
+				}
+			]
+		},
+		{
+			"title": "Breakfast Catering",
+			"id": "breakfast_catering",
+			"products": [
+				{
+					"title": "Classic Goulash 3",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "classic-goulash"
+				},
+				{
+					"title": "Classic Italian Spaghetti 3",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "classic-italian-spaghetti"
+				},
+				{
+					"title": "Grilled Chicken 3",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "grilled-chicken"
+				},
+				{
+					"title": "Fried Pork Steak 3",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "fried-pork-steak"
+				},
+				{
+					"title": "Stir Fry Noodles 3",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "stir-fry-noodles"
+				},
+				{
+					"title": "Healthy Salad 3",
+					"price": 80,
+					"subtitle": "12 Person Minimum on All Packages.",
+					"image": "healthy-salad"
+				}
+			]
+		}
+	],
+	"about-catering": [
+		{
+			"title": "Only the freshest ingredients",
+			"description": "Our chefs chop and prepare food fresh each morning, never the day before.",
+			"iconUrl": "assets/catering_icon-1.png"
+		},
+		{
+			"title": "We have a passion for food",
+			"description": "Our chefs chop and prepare food fresh each morning, never the day before.",
+			"iconUrl": "assets/catering_icon-2.png"
+		},
+		{
+			"title": "We never compromise quality",
+			"description": "Our chefs chop and prepare food fresh each morning, never the day before.",
+			"iconUrl": "assets/catering_icon-3.png"
+		}
+	],
+	"services": [
+		{
+			"title": "Anniversaries",
+			"description": "Enjoy one of our refreshing body treatments for skin",
+			"icon": "gift",
+			"link": "#"
+		},
+		{
+			"title": "Corporate Parties",
+			"description": "Enjoy one of our refreshing body treatments for skin",
+			"icon": "cocktail",
+			"link": "#"
+		},
+		{
+			"title": "Weddings",
+			"description": "Enjoy one of our refreshing body treatments for skin",
+			"icon": "cake",
+			"link": "#"
+		},
+		{
+			"title": "Social Events",
+			"description": "Enjoy one of our refreshing body treatments for skin",
+			"icon": "cupcake",
+			"link": "#"
+		}
+	],
+	"footer-nav": [
+		{ "title": "About", "link": "#" },
+		{ "title": "Services", "link": "#" },
+		{ "title": "Pricing plans", "link": "#" },
+		{ "title": "Privacy", "link": "#" },
+		{ "title": "Contact us", "link": "#" }
+	],
+	"footer-menu": {
+		"About": [
+			{
+				"title": "About Sway",
+				"link": "#"
+			},
+			{
+				"title": "Plans & Pricing",
+				"link": "#"
+			},
+			{
+				"title": "Services",
+				"link": "#"
+			},
+			{
+				"title": "Blog",
+				"link": "#"
+			}
+		],
+		"Products": [
+			{
+				"title": "Primary blocks",
+				"link": "#"
+			},
+			{
+				"title": "Content blocks",
+				"link": "#"
+			},
+			{
+				"title": "Infographic blocks",
+				"link": "#"
+			},
+			{
+				"title": "Business blocks",
+				"link": "#"
+			}
+		],
+		"Resources": [
+			{
+				"title": "Support center",
+				"link": "#"
+			},
+			{
+				"title": "Documentation",
+				"link": "#"
+			},
+			{
+				"title": "Newsletter",
+				"link": "#"
+			},
+			{
+				"title": "Changelog",
+				"link": "#"
+			}
+		],
+		"Follow us": [
+			{
+				"title": "Twitter",
+				"link": "https://twitter.com/",
+				"icon": "twitter"
+			},
+			{
+				"title": "Instagram",
+				"link": "https://www.instagram.com/",
+				"icon": "instagram"
+			},
+			{
+				"title": "Facebook",
+				"link": "https://www.facebook.com/",
+				"icon": "facebook"
+			},
+			{
+				"title": "Linkedin",
+				"link": "https://www.linkedin.com/",
+				"icon": "linkedin"
+			}
+		]
+	}
+}

@@ -1,0 +1,16 @@
+---
+import Instagram from './Instagram.astro'
+import Facebook from './Facebook.astro'
+import Twitter from './Twitter.astro'
+import Linkedin from './Linkedin.astro'
+type Props = {
+	name: string
+}
+
+const { name } = Astro.props
+---
+
+{name === 'facebook' && <Facebook />}
+{name === 'instagram' && <Instagram />}
+{name === 'twitter' && <Twitter />}
+{name === 'linkedin' && <Linkedin />}

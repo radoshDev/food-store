@@ -1,0 +1,43 @@
+---
+type Props = {
+	title: string
+	navigation?: { link: string; title: string }[]
+}
+
+const { navigation, title } = Astro.props
+---
+
+<div class="menu_block">
+	<h5 class="title">{title}</h5>
+	{
+		navigation && (
+			<ul>
+				{navigation.map(nav => (
+					<li>
+						<a href={nav.link}>{nav.title}</a>
+					</li>
+				))}
+			</ul>
+		)
+	}
+	<slot />
+</div>
+
+<style lang="scss">
+	@import '../../../../../styles/variables.scss';
+	.menu_block {
+		font-size: 1.8rem;
+		.title {
+			font-family: $neue;
+			font-weight: 500;
+			margin-bottom: 3rem;
+			line-height: 1;
+			font-size: 1em;
+			color: $title-color;
+		}
+		li {
+			margin-top: 1.5rem;
+			font-weight: 500;
+		}
+	}
+</style>

@@ -1,0 +1,29 @@
+---
+import data from '@data/data.json'
+import MenuBlock from './MenuBlock/MenuBlock.astro'
+---
+
+<div class="footer_menu">
+	{
+		Object.entries(data['footer-menu']).map(([title, navigation]) => (
+			<MenuBlock title={title} navigation={navigation} />
+		))
+	}
+	<MenuBlock title="Contact">
+		<address>
+			New York. 112 W<br />
+			34th St, Manhattan<br />
+			(1) 212-445-4320
+		</address>
+	</MenuBlock>
+</div>
+
+<style lang="scss">
+	.footer_menu {
+		display: flex;
+		justify-content: space-between;
+		border-top: 1px solid rgba(54, 51, 69, 0.1);
+		border-bottom: 1px solid rgba(54, 51, 69, 0.1);
+		padding: 8.5rem 1rem;
+	}
+</style>

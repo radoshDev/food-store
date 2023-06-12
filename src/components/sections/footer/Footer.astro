@@ -1,0 +1,25 @@
+---
+import FooterNavbar from './FooterNavbar/FooterNavbar.astro'
+import FooterTerms from './FooterTerms/FooterTerms.astro'
+import FooterMenu from './FooterMenu/FooterMenu.astro'
+---
+
+<footer class="footer">
+	<div class="container">
+		<div class="inner">
+			<FooterNavbar />
+			<FooterMenu />
+			<FooterTerms />
+		</div>
+	</div>
+</footer>
+
+<style lang="scss">
+	@import '../../../styles/variables.scss';
+	.footer {
+		font-family: $roboto;
+		.inner {
+			padding: 0 2rem;
+		}
+	}
+</style>

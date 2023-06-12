@@ -1,0 +1,16 @@
+---
+// import Picture from '@ui/Picture.astro'
+import { Image, Picture } from '@astrojs/image/components'
+import foodCollage from '@assets/food_collage.jpg'
+---
+
+<div class="section_about__two_col__gallery">
+	<Picture
+		src={foodCollage}
+		alt="collage of foods"
+		widths={[310, 620]}
+		sizes="(max-width: 620px) 100vw, 620px"
+		width={653}
+		height={714}
+	/>
+</div>

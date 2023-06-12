@@ -1,0 +1,93 @@
+.section_menu {
+	background-color: gray;
+	padding: 13rem 0 10.8rem;
+	@include bgImage(menu_card);
+	&__title {
+		font-weight: 500;
+		font-size: 3.4rem;
+		text-align: center;
+		letter-spacing: 0.01em;
+		color: #fff;
+		max-width: 83rem;
+		margin: 0 auto 5.5rem;
+	}
+	&__card {
+		background-color: #fff;
+		border-radius: 1rem;
+		&__header {
+			display: flex;
+			justify-content: center;
+			gap: 8rem;
+			border-bottom: 1px solid rgba(105, 105, 105, 0.2);
+			margin: 0 1.8rem;
+			&__tab {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-top: 2.8rem;
+				input {
+					display: none;
+					&:checked {
+						& ~ .tab__title {
+							color: $title-color;
+						}
+						& ~ .tab__line {
+							background-color: $light-green;
+						}
+					}
+				}
+				.tab__title {
+					font-weight: 500;
+					margin-bottom: 2.5rem;
+					cursor: pointer;
+				}
+				.tab__line {
+					display: inline-block;
+					height: 3px;
+					width: 92%;
+					background-color: transparent;
+					margin-bottom: -2px;
+				}
+			}
+		}
+		&__body {
+			padding: 7.4rem 9rem 7rem;
+			&__tab {
+				display: none;
+				gap: 2.2rem 4rem;
+				grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+				.product__menu {
+					display: grid;
+					gap: 0 1.8rem;
+					grid-template-columns: 6.5rem 1fr max-content;
+					grid-template-areas: 'image title price' 'image subtitle price';
+					&__image {
+						grid-area: image;
+					}
+					&__title {
+						grid-area: title;
+						font-size: 2.2rem;
+						color: $title-color;
+						font-weight: 500;
+						display: flex;
+						&__dash {
+							border-bottom: 1px dashed rgba(105, 105, 105, 0.6);
+							margin-bottom: 0.6rem;
+							flex: 1;
+						}
+					}
+					&__price {
+						grid-area: price;
+						font-size: 2.2rem;
+						color: #121212;
+					}
+					&__subtitle {
+						grid-area: subtitle;
+						font-family: $roboto;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+@mixin bgImage($name, $format: 'jpg') {
+	@if $format == 'png' {
+		background-image: url('assets/#{$name}.png');
+	} @else {
+		background-image: -webkit-image-set(
+			url('assets/#{$name}.avif') type('image/avif'),
+			url('assets/#{$name}.jpg') type('image/jpeg')
+		);
+		background-image: image-set(
+			url('assets/#{$name}.avif') type('image/avif'),
+			url('assets/#{$name}.jpg') type('image/jpeg')
+		);
+	}
+}

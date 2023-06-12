@@ -1,0 +1,23 @@
+---
+import Navbar from './Navbar/Navbar.astro'
+import Jumbotron from './Jumbotron/Jumbotron.astro'
+---
+
+<header class="page__header">
+	<Navbar />
+	<Jumbotron />
+</header>
+
+<style lang="scss">
+	@import '../../../styles/mixins.scss';
+
+	.page__header {
+		position: relative;
+		background-color: #121d29;
+		color: #fff;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		@include bgImage(header_image);
+	}
+</style>

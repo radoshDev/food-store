@@ -1,0 +1,20 @@
+---
+type Props = { title: string; link: string }
+import ArrowDown from '../../../ui/icons/ArrowDown.astro'
+
+const { link, title } = Astro.props
+---
+
+<li class="menu_item">
+	<a href={link}>{title}</a>
+	<ArrowDown />
+</li>
+
+<style lang="scss">
+	.menu_item {
+		& > a {
+			cursor: pointer;
+			font-weight: 500;
+		}
+	}
+</style>

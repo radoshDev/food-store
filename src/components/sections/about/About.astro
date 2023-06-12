@@ -1,0 +1,28 @@
+---
+import Catering from './Catering/Catering.astro'
+import Gallery from './Gallery/Gallery.astro'
+import Content from './Content/Content.astro'
+---
+
+<section class="section_about">
+	<div class="container">
+		<Content />
+		<div class="two_col">
+			<Catering />
+			<Gallery />
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	.section_about {
+		margin: 10.8rem 0;
+		.two_col {
+			display: flex;
+			margin-top: 4.6rem;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0 2rem;
+		}
+	}
+</style>

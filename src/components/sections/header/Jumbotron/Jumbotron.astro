@@ -1,0 +1,45 @@
+---
+import Button from '@ui/Button.astro'
+---
+
+<div class="jumbotron container">
+	<div class="content">
+		<h4 class="subtitle curly_title">Catering should be an experience</h4>
+		<h1 class="title">We use only the finest and freshest ingredients</h1>
+		<p class="description">
+			At Sway catering we know that food is an important part of life. If the
+			meal is not perfect, your event cannot be perfect.
+		</p>
+		<Button>Request a Quote</Button>
+	</div>
+</div>
+
+<style lang="scss">
+	.jumbotron {
+		position: relative;
+		z-index: 2;
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		.content {
+			text-align: center;
+			padding-bottom: 3rem;
+			.title {
+				font-size: 6rem;
+				font-weight: 500;
+				letter-spacing: 0.02em;
+				line-height: 1.1667;
+				max-width: 79.5rem;
+			}
+			.description {
+				font-weight: 400;
+				font-size: 1.8rem;
+				line-height: 1.5;
+				letter-spacing: 0.02em;
+				max-width: 53.5rem;
+				margin: 3.4rem auto 3.9rem;
+			}
+		}
+	}
+</style>

@@ -1,0 +1,30 @@
+---
+import data from '@data/data.json'
+import CateringItem from './CateringItem.astro'
+---
+
+<div class="about_catering">
+	<h4 class="title">
+		Our passion is stirred by the colors, flavors, and exotic textures
+	</h4>
+	<div class="list">
+		{data['about-catering'].map(item => <CateringItem {...item} />)}
+	</div>
+</div>
+
+<style lang="scss">
+	@import '../../../../styles/variables.scss';
+
+	.about_catering {
+		max-width: 47rem;
+		.title {
+			font-size: 2.8rem;
+			font-weight: 500;
+			line-height: 1.286;
+			color: $title-color;
+		}
+		.list {
+			margin-top: 4.5rem;
+		}
+	}
+</style>

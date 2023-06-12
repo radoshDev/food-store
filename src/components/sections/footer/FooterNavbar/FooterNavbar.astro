@@ -1,0 +1,47 @@
+---
+import data from '@data/data.json'
+import SocMedia from '@ui/icons/SocMedia.astro'
+---
+
+<div class="footer_navbar">
+	<ul class="links">
+		{
+			data['footer-nav'].map(nav => (
+				<li>
+					<a href={nav.link}>{nav.title}</a>
+				</li>
+			))
+		}
+	</ul>
+	<div class="soc_media">
+		{
+			data['footer-menu']['Follow us'].map(socMedia => (
+				<a href={socMedia.link}>
+					<SocMedia name={socMedia.icon} />
+				</a>
+			))
+		}
+	</div>
+</div>
+
+<style lang="scss">
+	.footer_navbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 10rem 1rem 4.2rem;
+		.links {
+			display: flex;
+			gap: 2.5rem;
+			letter-spacing: 0.01em;
+			font-weight: 500;
+		}
+		.soc_media {
+			display: flex;
+			gap: 2.2rem;
+			& > a {
+				display: flex;
+			}
+		}
+	}
+</style>
