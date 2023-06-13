@@ -1,0 +1,133 @@
+---
+import { Image, Picture } from '@astrojs/image/components'
+import Layout from '@layouts/Layout.astro'
+import fallback from '@assets/food_collage.jpg'
+import fiveHW from './assets/pexels-elena-blessing-2674052.jpg'
+import eightHW from './assets/pexels-pixabay-247431.jpg'
+import thoursandW from './assets/pexels-pixabay-53957.jpg'
+
+const images = await Astro.glob('./assets/**')
+---
+
+<Layout title="Image loading">
+	<div class="container">
+		<h1>Images</h1>
+		<div class="grid">
+			{
+				images.map(image => (
+					<div class="image_wrapper">
+						<div class="placeholder">
+							<Image
+								class="img_placehoder"
+								src={image.default.src}
+								width={20}
+								height={20}
+								alt="just test"
+								fetchpriority="high"
+							/>
+						</div>
+						<Picture
+							class="main_img"
+							src={image.default.src}
+							widths={[600, 800, 1000]}
+							sizes="(min-width: 1300px) calc(1286px / 2 - 2rem), calc(50vw - 2rem)"
+							alt="nature"
+							aspectRatio="1:1"
+							loading="lazy"
+						/>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</Layout>
+
+<script>
+	const imageWrappers = document.querySelectorAll('.image_wrapper')
+	imageWrappers.forEach(wrapper => {
+		const mainImage = wrapper.querySelector('.main_img') as HTMLImageElement
+
+		function loaded() {
+			wrapper.classList.add('loaded')
+		}
+
+		if (mainImage.complete) {
+			loaded()
+		} else {
+			mainImage.addEventListener('load', loaded)
+		}
+	})
+</script>
+
+<style lang="scss">
+	h1 {
+		margin-bottom: 2rem;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+	}
+	.image_wrapper {
+		position: relative;
+		&.loaded {
+			.main_img {
+				opacity: 1;
+			}
+			.placeholder {
+				opacity: 0;
+				pointer-events: none;
+			}
+		}
+		.placeholder {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			transition: opacity 0.5s ease;
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				backdrop-filter: blur(10px);
+				z-index: 3;
+			}
+			.img_placehoder {
+				width: 100%;
+				height: 100%;
+			}
+			&::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				animation: pulse 2.5s infinite;
+			}
+		}
+		.main_img {
+			opacity: 0;
+			transition: opacity 0.5s ease;
+		}
+		img {
+			width: 100%;
+			max-width: 100%;
+			display: block;
+			aspect-ratio: 1/1;
+			object-fit: cover;
+		}
+	}
+
+	@keyframes pulse {
+		0% {
+			background-color: rgba(255, 255, 255, 0);
+		}
+		50% {
+			background-color: rgba(255, 255, 255, 0.15);
+		}
+		100% {
+			background-color: rgba(255, 255, 255, 0);
+		}
+	}
+</style>
