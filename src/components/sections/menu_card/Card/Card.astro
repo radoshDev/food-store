@@ -1,0 +1,70 @@
+---
+import data from '@/data/data.json'
+import CardTab from './CardTab.astro'
+import CardContent from './CardContent.astro'
+---
+
+<div class="section_menu_card">
+	<div class="header">
+		{
+			data['menu-card'].map((menu, i) => (
+				<CardTab title={menu.title} id={menu.id} checked={i === 0} />
+			))
+		}
+	</div>
+	<div class="body">
+		{
+			data['menu-card'].map((menu, i) => (
+				<CardContent id={menu.id} products={menu.products} checked={i === 0} />
+			))
+		}
+	</div>
+</div>
+
+<style lang="scss">
+	.section_menu_card {
+		background-color: #fff;
+		border-radius: 1rem;
+		.header {
+			display: flex;
+			justify-content: center;
+			gap: 8rem;
+			border-bottom: 1px solid rgba(105, 105, 105, 0.2);
+			margin: 0 1.8rem;
+		}
+		.body {
+			padding: 7.4rem 9rem 7rem;
+		}
+	}
+</style>
+
+<script>
+	const cardTabs = document.querySelectorAll('input[type=radio][name="tabs"]')
+
+	cardTabs.forEach(radio => radio.addEventListener('change', toggleTabs))
+
+	function toggleTabs(event: Event) {
+		const currentTag = event.target as HTMLInputElement
+
+		hideAllTabsContent()
+		showTabContent(currentTag.id)
+	}
+
+	function hideAllTabsContent() {
+		const tabsContent =
+			document.querySelectorAll<HTMLDivElement>('[id^="tab-"]')
+
+		tabsContent.forEach(tab => {
+			tab.style.display = 'none'
+		})
+	}
+
+	function showTabContent(tabId: string) {
+		const currentContent = document.querySelector<HTMLDivElement>(
+			`#tab-${tabId}`
+		)
+		if (!currentContent) return
+
+		currentContent.style.display = 'grid'
+	}
+</script>

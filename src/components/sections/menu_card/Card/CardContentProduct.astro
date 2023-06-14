@@ -1,0 +1,50 @@
+---
+import type { Product } from '@/types'
+
+type Props = Product
+const { image, price, subtitle, title } = Astro.props
+---
+
+<div class="card_content_product">
+	<img class="image" src={`assets/${image}.jpg`} alt={title} />
+	<div class="title">
+		{title}<span class="title_dash"></span>
+	</div>
+	<div class="price">${price}</div>
+	<p class="subtitle">{subtitle}</p>
+</div>
+
+<style lang="scss">
+	@import '../../../../styles/variables.scss';
+
+	.card_content_product {
+		display: grid;
+		gap: 0 1.8rem;
+		grid-template-columns: 6.5rem 1fr max-content;
+		grid-template-areas: 'image title price' 'image subtitle price';
+		.image {
+			grid-area: image;
+		}
+		.title {
+			grid-area: title;
+			font-size: 2.2rem;
+			color: $title-color;
+			font-weight: 500;
+			display: flex;
+			&_dash {
+				border-bottom: 1px dashed rgba(105, 105, 105, 0.6);
+				margin-bottom: 0.6rem;
+				flex: 1;
+			}
+		}
+		.price {
+			grid-area: price;
+			font-size: 2.2rem;
+			color: #121212;
+		}
+		.subtitle {
+			grid-area: subtitle;
+			font-family: $roboto;
+		}
+	}
+</style>

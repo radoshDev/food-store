@@ -1,0 +1,27 @@
+---
+import type { Product } from '@/types'
+import CardContentProduct from './CardContentProduct.astro'
+
+type Props = {
+	id: string
+	products: Product[]
+	checked: boolean
+}
+
+const { id, products, checked } = Astro.props
+---
+
+<div
+	style={{ display: checked ? 'grid' : 'none' }}
+	class="card_content"
+	id={`tab-${id}`}>
+	{products.map(product => <CardContentProduct {...product} />)}
+</div>
+
+<style lang="scss">
+	.card_content {
+		display: none;
+		gap: 2.2rem 4rem;
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	}
+</style>
