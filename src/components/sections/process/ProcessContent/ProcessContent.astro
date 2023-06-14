@@ -1,0 +1,35 @@
+---
+import Button from '@/components/ui/Button.astro'
+import ArrowDown from '@/components/ui/icons/ArrowDown.astro'
+---
+
+<div class="process_content">
+	<h4 class="title section_title">
+		At Sway, we know that food is an important part of life
+	</h4>
+	<p class="desc">
+		If the meal isn't perfect, your event cannot be perfect. We know that it is
+		critical for your food to arrive on time, to be presented beautifully, and
+		to be delicious.
+	</p>
+	<Button>Order Now <ArrowDown direction="right" /></Button>
+</div>
+
+<style lang="scss">
+	.process_content {
+		max-width: 50rem;
+		.desc {
+			color: #7c7c7c;
+			font-style: normal;
+			font-weight: 400;
+			font-size: 1.8rem;
+			line-height: 1.5;
+			margin: 3.3rem 0 5rem;
+		}
+		:global(.btn) {
+			& > :global(svg) {
+				margin-left: 1.5rem;
+			}
+		}
+	}
+</style>

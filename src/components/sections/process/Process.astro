@@ -1,0 +1,28 @@
+---
+import ProcessContent from './ProcessContent/ProcessContent.astro'
+import ProcessVideo from './ProcessVideo/ProcessVideo.astro'
+---
+
+<div class="section_process">
+	<div class="container">
+		<div class="wrapper">
+			<ProcessVideo />
+			<ProcessContent />
+		</div>
+	</div>
+</div>
+
+<style lang="scss">
+	@import '../../../styles/variables.scss';
+
+	.section_process {
+		background-color: $lighter-purple;
+		padding: 9.7rem 0 5.1rem;
+		.wrapper {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 2rem;
+		}
+	}
+</style>

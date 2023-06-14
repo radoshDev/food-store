@@ -1,0 +1,75 @@
+---
+import PlayIcon from '@/components/ui/icons/Play.astro'
+---
+
+<div class="video_block">
+	<video
+		id="process_video"
+		width="578"
+		height="424"
+		poster="assets/process_preview.jpg">
+		<source type="video/mp4" src="assets/process.mp4" />
+	</video>
+	<div id="process_video_controls" class="controls">
+		<PlayIcon />
+	</div>
+</div>
+
+<style lang="scss">
+	@import '../../../../styles/variables.scss';
+
+	$right-shift: 4.2rem;
+	$bottom-shift: 5rem;
+
+	.video_block {
+		position: relative;
+		background-image: url('/assets/dots.svg');
+		background-repeat: no-repeat;
+		background-position: bottom right;
+		video {
+			border-radius: 1rem;
+			overflow: hidden;
+			object-fit: cover;
+			margin: 0 $right-shift $bottom-shift 0;
+			display: block;
+		}
+		.controls {
+			width: 12rem;
+			height: 12rem;
+			border-radius: 12rem;
+			background: rgba(255, 255, 255, 0.9);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(
+				calc(-50% - $right-shift / 2),
+				calc(-50% - $bottom-shift / 2)
+			);
+			color: $light-green;
+		}
+	}
+</style>
+
+<script>
+	const videoEl = document.querySelector<HTMLVideoElement>('#process_video')
+	const playButton = document.querySelector<HTMLDivElement>(
+		'#process_video_controls'
+	)
+
+	if (!videoEl || !playButton)
+		throw new Error('Video or video controls not found')
+
+	playButton.addEventListener('click', () => {
+		if (videoEl.paused) {
+			videoEl.play()
+			playButton.style.opacity = '0'
+		} else {
+			videoEl.pause()
+			playButton.style.opacity = '1'
+		}
+	})
+</script>
