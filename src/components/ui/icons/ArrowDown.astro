@@ -1,4 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width={11} height={7} fill="none">
+---
+type Props = { direction?: 'top' | 'left' | 'right' }
+const { direction } = Astro.props
+
+let rotateDeg = 0
+if (direction === 'right') rotateDeg = -90
+if (direction === 'left') rotateDeg = 90
+if (direction === 'top') rotateDeg = 180
+---
+
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	width={11}
+	height={7}
+	fill="none"
+	style={{ rotate: `${rotateDeg}deg`, verticalAlign: 'middle' }}>
 	<path
 		fill="#fff"
 		fill-rule="evenodd"

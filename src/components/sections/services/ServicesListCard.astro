@@ -1,0 +1,36 @@
+---
+type Props = {
+	icon: string
+	title: string
+	description: string
+	link: string
+}
+
+const { description, icon, title, link } = Astro.props
+---
+
+<div class="services_list_card card">
+	<img src={`assets/icon-${icon}.png`} alt={icon} />
+	<h5 class="title">{title}</h5>
+	<p class="desc">{description}</p>
+	<a class="link" href={link}>Learn More</a>
+</div>
+
+<style lang="scss">
+	@import '../../../styles/variables.scss';
+
+	.services_list_card {
+		padding: 3.9rem 1rem;
+		.title {
+			color: $title-color;
+			font-size: 2rem;
+			margin-top: 1rem;
+			font-weight: 500;
+		}
+		.desc {
+			font-size: 1.5rem;
+			letter-spacing: -0.01em;
+			margin: 2.3rem 0 2.7rem;
+		}
+	}
+</style>

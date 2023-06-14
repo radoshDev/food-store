@@ -1,0 +1,28 @@
+---
+import ArrowDown from '@ui/icons/ArrowDown.astro'
+import Button from '@ui/Button.astro'
+import ServicesList from './ServicesList.astro'
+---
+
+<section class="section_services">
+	<div class="container">
+		<h4 class="title">We are a full-service catering company located in NYC</h4>
+		<ServicesList />
+		<Button>Our Services <ArrowDown direction="right" /></Button>
+	</div>
+</section>
+
+<style lang="scss">
+	@import '../../../styles/variables.scss';
+	.section_services {
+		background-color: $light-purple;
+		text-align: center;
+		padding: 16.5rem 0 10.3rem;
+		.title {
+			color: $title-color;
+			font-size: 3.4rem;
+			font-weight: 500;
+			margin-bottom: 7.2rem;
+		}
+	}
+</style>

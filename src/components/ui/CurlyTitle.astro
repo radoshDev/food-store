@@ -1,7 +1,12 @@
 ---
+type Props = {
+	className?: string
+}
+
+const { className } = Astro.props
 ---
 
-<h2><slot /></h2>
+<h2 class:list={[className]}><slot /></h2>
 
 <style lang="scss">
 	@import '../../styles/variables.scss';
