@@ -1,12 +1,8 @@
 ---
 import { Image, Picture } from '@astrojs/image/components'
-import Layout from '@layouts/Layout.astro'
-import fallback from '@assets/food_collage.jpg'
-import fiveHW from './assets/pexels-elena-blessing-2674052.jpg'
-import eightHW from './assets/pexels-pixabay-247431.jpg'
-import thoursandW from './assets/pexels-pixabay-53957.jpg'
+import Layout from '@/layouts/Layout.astro'
 
-const images = await Astro.glob('./assets/**')
+const images = await Astro.glob('../../assets/forImagesPage/**')
 ---
 
 <Layout title="Image loading">
