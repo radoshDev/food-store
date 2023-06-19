@@ -1,0 +1,18 @@
+---
+import data from '@/data/data.json'
+import ProductCard from './ProductCard.astro'
+---
+
+<div class="products_list">
+	{data.products.map(product => <ProductCard {...product} />)}
+</div>
+
+<style lang="scss">
+	.products_list {
+		padding: 0 1.4rem;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 3.1rem;
+	}
+</style>

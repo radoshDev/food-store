@@ -1,0 +1,78 @@
+---
+import RatingStars from '@/components/ui/RatingStars'
+import type data from '@/data/data.json'
+
+type Props = (typeof data.products)[0]
+
+const { compare_price, imageSrc, price, rating, title, url } = Astro.props
+---
+
+<a class="product_card" href={url}>
+	<img src={imageSrc} alt={title} />
+	<div class="product_grid">
+		<div class="title">{title}</div>
+		<div class="price">${price}</div>
+		<div class="rating"><RatingStars rating={rating} /></div>
+	</div>
+	{
+		compare_price > price && (
+			<span class="sale">
+				Sale {Math.round((price / compare_price) * 100)}%
+			</span>
+		)
+	}
+</a>
+
+<style lang="scss">
+	@import '../../../../styles/variables.scss';
+	.product_card {
+		max-width: 289px;
+		box-sizing: border-box;
+		position: relative;
+		border-radius: 0.5rem;
+		transition: background-color 0.3s ease;
+		&:hover {
+			background-color: rgb(231, 234, 236);
+		}
+		img {
+			width: 100%;
+			max-width: 100%;
+			border: 1px solid #ededed;
+			display: block;
+			border-radius: 0.5rem;
+		}
+		.product_grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			padding: 1.5rem 0.5rem;
+			.title {
+				color: $title-color;
+				font-weight: 500;
+				font-size: 1.8rem;
+				grid-column: 1 / -1;
+				margin-bottom: 1rem;
+			}
+			.price {
+				color: $text-color;
+				font-size: 1.8rem;
+			}
+			.rating {
+				color: #f5ad0d;
+				justify-self: end;
+				display: flex;
+				gap: 0.4rem;
+			}
+		}
+		.sale {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			background-color: $light-green;
+			font-size: 1.4rem;
+			padding: 0.5em 1em;
+			border-radius: 0.357em;
+			color: #fff;
+			line-height: 1;
+		}
+	}
+</style>

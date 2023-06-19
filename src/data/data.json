@@ -156,6 +156,80 @@
 			"iconUrl": "assets/catering_icon-3.png"
 		}
 	],
+	"products": [
+		{
+			"title": "Classic Goulash",
+			"imageSrc": "assets/product_1.jpg",
+			"rating": 5,
+			"price": 55,
+			"compare_price": 0,
+			"url": "#",
+			"id": 1
+		},
+		{
+			"title": "Classic Italian Spaghetti",
+			"imageSrc": "assets/product_2.jpg",
+			"rating": 4,
+			"price": 25,
+			"compare_price": 50,
+			"url": "#",
+			"id": 2
+		},
+		{
+			"title": "Fried Pork Steak",
+			"imageSrc": "assets/product_1.jpg",
+			"rating": 5,
+			"price": 55,
+			"compare_price": 0,
+			"url": "#",
+			"id": 3
+		},
+		{
+			"title": "Grilled Chicken",
+			"imageSrc": "assets/product_2.jpg",
+			"rating": 5,
+			"price": 25,
+			"compare_price": 50,
+			"url": "#",
+			"id": 4
+		},
+		{
+			"title": "Grilled Roast Beef",
+			"imageSrc": "assets/product_1.jpg",
+			"rating": 5,
+			"price": 55,
+			"compare_price": 0,
+			"url": "#",
+			"id": 5
+		},
+		{
+			"title": "Honey Spicy Chiken",
+			"imageSrc": "assets/product_2.jpg",
+			"rating": 5,
+			"price": 55,
+			"compare_price": 0,
+			"url": "#",
+			"id": 6
+		},
+		{
+			"title": "Honey Spicy Chiken",
+			"imageSrc": "assets/product_1.jpg",
+			"rating": 4.3,
+			"price": 55,
+			"compare_price": 0,
+			"url": "#",
+			"id": 7
+		},
+		{
+			"title": "Stir Fry Noodles",
+			"imageSrc": "assets/product_2.jpg",
+			"rating": 3,
+			"price": 25,
+			"compare_price": 0,
+			"url": "#",
+			"id": 8
+		}
+	],
 	"services": [
 		{
 			"title": "Anniversaries",

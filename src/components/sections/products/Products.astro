@@ -1,0 +1,31 @@
+---
+import Button from '@/components/ui/Button.astro'
+import ProductsList from './ProductsList/ProductsList.astro'
+---
+
+<section class="products_section">
+	<div class="container">
+		<h3 class="section_title title">
+			Visit our online store right now to see our exclusive menu and products
+		</h3>
+		<ProductsList />
+		<div class="actions">
+			<Button>Visit Store</Button>
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	.products_section {
+		padding: 13rem 0 5rem;
+		.title {
+			max-width: 66rem;
+			margin: 0 auto 8rem;
+			text-align: center;
+		}
+		.actions {
+			text-align: center;
+			margin-top: 6rem;
+		}
+	}
+</style>
