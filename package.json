@@ -1,26 +1,28 @@
 {
-  "name": "food-shop",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/image": "^0.17.0",
-    "@astrojs/react": "^2.2.1",
-    "@icon-park/react": "^1.4.2",
-    "@iconify/react": "^4.1.0",
-    "@types/react": "^18.2.9",
-    "@types/react-dom": "^18.2.4",
-    "astro": "^2.5.6",
-    "react": "^18.2.0",
-    "react-bootstrap-icons": "^1.10.3",
-    "react-dom": "^18.2.0",
-    "sass": "^1.63.2",
-    "sharp": "^0.32.1"
-  }
+	"name": "food-shop",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/image": "^0.17.0",
+		"@astrojs/react": "^2.2.1",
+		"@types/react": "^18.2.9",
+		"@types/react-dom": "^18.2.4",
+		"astro": "^2.5.6",
+		"glider-js": "^1.7.8",
+		"react": "^18.2.0",
+		"react-bootstrap-icons": "^1.10.3",
+		"react-dom": "^18.2.0",
+		"sass": "^1.63.2",
+		"sharp": "^0.32.1"
+	},
+	"devDependencies": {
+		"@types/glider-js": "^1.7.8"
+	}
 }

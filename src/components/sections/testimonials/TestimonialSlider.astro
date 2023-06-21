@@ -1,0 +1,34 @@
+---
+import { ArrowRight, ArrowLeft } from 'react-bootstrap-icons'
+import data from '@/data/data.json'
+import TestimonialItem from './TestimonialItem.astro'
+---
+
+<div class="glider-contain">
+	<div class="glider glider_slider">
+		{data.testimonials.map(testimonial => <TestimonialItem {...testimonial} />)}
+	</div>
+	<button class="slide_prev"><ArrowLeft /></button>
+	<button class="slide_next"><ArrowRight /></button>
+</div>
+
+<script>
+	import Glider from 'glider-js'
+	const sliderElement = document.querySelector<HTMLElement>('.glider_slider')
+	if (!sliderElement) throw new Error("'glider_slider")
+
+	new Glider(sliderElement, {
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		arrows: { prev: '.slide_prev', next: '.slide_next' },
+	})
+</script>
+
+<style lang="">
+	.glider-contain {
+		/* border: 1px solid red; */
+	}
+	.glider_slider {
+		/* padding: 3.5rem 35px 6rem; */
+	}
+</style>

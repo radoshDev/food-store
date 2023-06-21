@@ -1,0 +1,40 @@
+---
+import type { UserInfo } from '@/types'
+import { Image } from '@astrojs/image/components'
+type Props = UserInfo
+const { avatar, fullName, position } = Astro.props
+---
+
+<div class="user_info">
+	<Image class="avatar" src={avatar} alt={fullName} width={120} height={120} />
+	<div class="info">
+		<div class="name">{fullName}</div>
+		<div class="position">{position}</div>
+	</div>
+</div>
+
+<style lang="scss">
+	@import '../../styles/variables.scss';
+	.user_info {
+		display: flex;
+		gap: 1.5rem;
+		align-items: center;
+		.avatar {
+			filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+			border-radius: 99rem;
+			width: 60px;
+			height: 60px;
+		}
+		.info {
+			.name {
+				color: $light-green;
+				font-weight: 500;
+			}
+			.position {
+				color: $light-grey;
+				font-weight: 500;
+				font-size: 15px;
+			}
+		}
+	}
+</style>

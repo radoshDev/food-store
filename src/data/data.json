@@ -256,6 +256,68 @@
 			"link": "#"
 		}
 	],
+	"testimonials": [
+		{
+			"user": {
+				"avatar": "/assets/vincent_smith.jpg",
+				"fullName": "Vincent Smith",
+				"position": "CEO at Ritmo"
+			},
+			"title": "I love Sway 😍",
+			"description": "The experts easily identified the look and feel we wanted and guided us through the creation of the content of the site.",
+			"rating": "5.0"
+		},
+		{
+			"user": {
+				"avatar": "/assets/thomas_smith.jpg",
+				"fullName": "Thomas Smith",
+				"position": "CEO at Ritmo"
+			},
+			"title": "Awesome Work 🏆",
+			"description": "The experts easily identified the look and feel we wanted and guided us through the creation of the content of the site.",
+			"rating": "5.0"
+		},
+		{
+			"user": {
+				"avatar": "/assets/stella_smith.jpg",
+				"fullName": "Stella Smith",
+				"position": "CEO at Ritmo"
+			},
+			"title": "I love Sway 😍",
+			"description": "The experts easily identified the look and feel we wanted and guided us through the creation of the content of the site.",
+			"rating": "5.0"
+		},
+		{
+			"user": {
+				"avatar": "/assets/alex_smith.jpg",
+				"fullName": "Alex Smith",
+				"position": "CEO at Ritmo"
+			},
+			"title": "Awesome Work 🏆",
+			"description": "The experts easily identified the look and feel we wanted and guided us through the creation of the content of the site.",
+			"rating": "5.0"
+		},
+		{
+			"user": {
+				"avatar": "/assets/alex_smith.jpg",
+				"fullName": "Alex Smith",
+				"position": "CEO at Ritmo"
+			},
+			"title": "Awesome Work 🏆",
+			"description": "The experts easily identified the look and feel we wanted and guided us through the creation of the content of the site.",
+			"rating": "5.0"
+		},
+		{
+			"user": {
+				"avatar": "/assets/alex_smith.jpg",
+				"fullName": "Alex Smith",
+				"position": "CEO at Ritmo"
+			},
+			"title": "Awesome Work 🏆",
+			"description": "The experts easily identified the look and feel we wanted and guided us through the creation of the content of the site.",
+			"rating": "5.0"
+		}
+	],
 	"footer-nav": [
 		{ "title": "About", "link": "#" },
 		{ "title": "Services", "link": "#" },

@@ -1,0 +1,65 @@
+---
+import RatingStars from '@/components/ui/RatingStars'
+import UserInfo from '@/components/ui/UserInfo.astro'
+import type { Testimonial } from '@/types'
+
+type Props = Testimonial
+
+const { user, description, rating, title } = Astro.props
+---
+
+<div class="testimonial_item card">
+	<UserInfo {...user} />
+	<div class="title">{title}</div>
+	<p class="desc">{description}</p>
+	<div class="rating">
+		<span class="amount">{rating}</span>
+		<div class="stars">
+			<RatingStars rating={Number(rating)} />
+		</div>
+	</div>
+</div>
+
+<style lang="scss" is:global>
+	.testimonial_item {
+		&:not(.visible) {
+			opacity: 0;
+		}
+	}
+</style>
+
+<style lang="scss">
+	@import '../../../styles/variables.scss';
+	.testimonial_item {
+		border-radius: 10px;
+		padding: 4.5rem 3.8rem;
+		max-width: 38rem;
+		margin: 3rem 1.5rem 6rem;
+		.title {
+			color: $title-color;
+			font-size: 1.8rem;
+			font-weight: 500;
+			margin: 2rem 0;
+		}
+		.desc {
+			font-size: 1.5rem;
+			line-height: 1.6;
+			margin-bottom: 2.6rem;
+		}
+		.rating {
+			color: $yellow;
+			display: flex;
+			gap: 1.5rem;
+			align-items: center;
+			.amount {
+				font-weight: 500;
+				font-size: 1.7rem;
+				line-height: 1.2;
+			}
+			.stars {
+				display: flex;
+				gap: 0.5rem;
+			}
+		}
+	}
+</style>
