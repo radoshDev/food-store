@@ -1,0 +1,43 @@
+---
+import type { ReactElement, ReactNode, FC } from 'react'
+import type { Icon } from 'react-bootstrap-icons'
+type Props = {
+	className?: string
+	color?: string
+	size?: number
+	Icon: Icon
+}
+
+const { color, Icon, size, className, ...otherProps } = Astro.props
+---
+
+<button class={`icon_btn ${color || ''} ${className}`} {...otherProps}>
+	<Icon size={size} />
+</button>
+
+<style lang="scss">
+	@import '../../styles/variables.scss';
+	.icon_btn {
+		background-color: transparent;
+		border: none;
+		color: inherit;
+		width: 45px;
+		height: 45px;
+		border-radius: 45px;
+		line-height: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.3s ease;
+		&.green {
+			background-color: rgb($light-green, 0.1);
+			color: $light-green;
+		}
+		&:hover:where(:not(.disabled)) {
+			background-color: rgb($light-green, 0.2);
+		}
+		&.disabled {
+			cursor: default;
+		}
+	}
+</style>

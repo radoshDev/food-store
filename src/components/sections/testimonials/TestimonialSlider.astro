@@ -1,15 +1,45 @@
 ---
-import { ArrowRight, ArrowLeft } from 'react-bootstrap-icons'
+import { ArrowRightShort, ArrowLeftShort } from 'react-bootstrap-icons'
 import data from '@/data/data.json'
 import TestimonialItem from './TestimonialItem.astro'
+import type { Testimonial } from '@/types'
+import IconButton from '@/components/ui/IconButton.astro'
+
+const testimonialsGroupe = data.testimonials.reduce<Testimonial[][]>(
+	(result, curr, i) => {
+		if (i % 3 === 0) result.push([])
+		result[result.length - 1].push(curr)
+		return result
+	},
+	[]
+)
 ---
 
 <div class="glider-contain">
 	<div class="glider glider_slider">
-		{data.testimonials.map(testimonial => <TestimonialItem {...testimonial} />)}
+		{
+			testimonialsGroupe.map(group => (
+				<div class="slide">
+					{group.map(testimonial => (
+						<TestimonialItem {...testimonial} />
+					))}
+				</div>
+			))
+		}
 	</div>
-	<button class="slide_prev"><ArrowLeft /></button>
-	<button class="slide_next"><ArrowRight /></button>
+	<IconButton
+		className="controls_btn slide_prev"
+		Icon={ArrowLeftShort}
+		size={30}
+		color="green"
+	/>
+	<IconButton
+		className="controls_btn slide_next"
+		Icon={ArrowRightShort}
+		size={30}
+		color="green"
+	/>
+	<div class="dots"></div>
 </div>
 
 <script>
@@ -18,17 +48,41 @@ import TestimonialItem from './TestimonialItem.astro'
 	if (!sliderElement) throw new Error("'glider_slider")
 
 	new Glider(sliderElement, {
-		slidesToShow: 3,
+		slidesToShow: 1,
 		slidesToScroll: 1,
+		dots: '.dots',
 		arrows: { prev: '.slide_prev', next: '.slide_next' },
 	})
 </script>
 
-<style lang="">
-	.glider-contain {
-		/* border: 1px solid red; */
+<style is:global lang="scss">
+	@import '../../../styles/variables.scss';
+	.dots {
+		margin-top: -2rem;
+		.glider-dot {
+			background: rgb($light-green, 0.1);
+			&.active {
+				background: $light-green;
+			}
+		}
 	}
-	.glider_slider {
-		/* padding: 3.5rem 35px 6rem; */
+</style>
+
+<style lang="scss">
+	.slide {
+		display: flex;
+		gap: 30px;
+		padding: 50px 0 70px;
+	}
+	.controls_btn {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		&.slide_prev {
+			left: 0;
+		}
+		&.slide_next {
+			right: 0;
+		}
 	}
 </style>

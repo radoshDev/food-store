@@ -306,16 +306,6 @@
 			"title": "Awesome Work 🏆",
 			"description": "The experts easily identified the look and feel we wanted and guided us through the creation of the content of the site.",
 			"rating": "5.0"
-		},
-		{
-			"user": {
-				"avatar": "/assets/alex_smith.jpg",
-				"fullName": "Alex Smith",
-				"position": "CEO at Ritmo"
-			},
-			"title": "Awesome Work 🏆",
-			"description": "The experts easily identified the look and feel we wanted and guided us through the creation of the content of the site.",
-			"rating": "5.0"
 		}
 	],
 	"footer-nav": [

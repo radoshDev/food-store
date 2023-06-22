@@ -20,21 +20,12 @@ const { user, description, rating, title } = Astro.props
 	</div>
 </div>
 
-<style lang="scss" is:global>
-	.testimonial_item {
-		&:not(.visible) {
-			opacity: 0;
-		}
-	}
-</style>
-
 <style lang="scss">
 	@import '../../../styles/variables.scss';
 	.testimonial_item {
 		border-radius: 10px;
 		padding: 4.5rem 3.8rem;
 		max-width: 38rem;
-		margin: 3rem 1.5rem 6rem;
 		.title {
 			color: $title-color;
 			font-size: 1.8rem;
