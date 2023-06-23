@@ -1,0 +1,32 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+type Props = HTMLAttributes<'input'> & {
+	id: string
+	type?: 'text' | 'email'
+	label?: string
+}
+
+const { id, label, ...inputProps } = Astro.props
+---
+
+<>
+	{label && <label for={id}>{label}</label>}
+	<input id={id} class="input" {...inputProps} />
+</>
+
+<style lang="scss">
+	@import '../../styles/variables.scss';
+	.input {
+		line-height: 1;
+		font-size: 1.5rem;
+		color: $title-color;
+		padding: 1.334em;
+		border-radius: 3em;
+		border: 1px solid #f3f3f3;
+		background: #edfcf4;
+		width: 100%;
+		&:focus {
+			outline-color: $light-green;
+		}
+	}
+</style>

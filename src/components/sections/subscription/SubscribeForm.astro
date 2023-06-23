@@ -1,0 +1,42 @@
+---
+import Button from '@/components/ui/Button.astro'
+import InputField from '@/components/ui/InputField.astro'
+---
+
+<form action="">
+	<span class="input_field">
+		<InputField
+			id="subcribe_email"
+			type="email"
+			name="email"
+			placeholder="Enter your email"
+		/>
+	</span>
+	<Button type="submit">Subscribe</Button>
+	<div class="sub_agree_grope">
+		<input type="checkbox" name="subscribe_agree" id="subscribe_agree" />
+		<label for="subscribe_agree">
+			I agree to my email being stored and used to receive the newsletter.
+		</label>
+	</div>
+</form>
+
+<style lang="scss">
+	@import '../../../styles/variables.scss';
+	form {
+		display: grid;
+		grid-template-columns: 40.2rem 1fr;
+		gap: 1.5rem;
+		.input_field {
+			max-width: 40.2rem;
+			width: 100%;
+			display: inline-block;
+		}
+		.sub_agree_grope {
+			padding-left: 0.5rem;
+			grid-column: 1 / -1;
+			font-size: 1.4rem;
+			color: $light-grey;
+		}
+	}
+</style>
