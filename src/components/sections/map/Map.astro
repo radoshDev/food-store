@@ -1,0 +1,155 @@
+---
+import {
+	Cart,
+	People,
+	Heart,
+	CameraVideo,
+	FileEarmarkText,
+	LifePreserver,
+	ChatLeft,
+} from 'react-bootstrap-icons'
+---
+
+<section class="map_section">
+	<div>
+		<Cart size={24} />
+		<People size={24} />
+		<Heart size={24} />
+		<CameraVideo size={24} />
+		<FileEarmarkText size={24} />
+		<LifePreserver size={24} />
+		<ChatLeft size={24} />
+	</div>
+	<div id="map"></div>
+</section>
+
+<script>
+	import { Loader } from '@googlemaps/js-api-loader'
+
+	const loader = new Loader({
+		apiKey: import.meta.env.PUBLIC_MAP_API_KEY,
+		version: 'weekly',
+		language: 'en',
+	})
+
+	const { Map, InfoWindow } = await loader.importLibrary('maps')
+	const { Marker } = await loader.importLibrary('marker')
+	const { Point, ControlPosition } = await loader.importLibrary('core')
+
+	const iconSize = 20
+	const icons = {
+		chat: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="${iconSize}" height="${iconSize}" fill="currentColor"><path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path></svg>`,
+		lifeSaver: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="${iconSize}" height="${iconSize}" fill="currentColor"><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm6.43-5.228a7.025 7.025 0 0 1-3.658 3.658l-1.115-2.788a4.015 4.015 0 0 0 1.985-1.985l2.788 1.115zM5.228 14.43a7.025 7.025 0 0 1-3.658-3.658l2.788-1.115a4.015 4.015 0 0 0 1.985 1.985L5.228 14.43zm9.202-9.202-2.788 1.115a4.015 4.015 0 0 0-1.985-1.985l1.115-2.788a7.025 7.025 0 0 1 3.658 3.658zm-8.087-.87a4.015 4.015 0 0 0-1.985 1.985L1.57 5.228A7.025 7.025 0 0 1 5.228 1.57l1.115 2.788zM8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path></svg>`,
+		document: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="${iconSize}" height="${iconSize}" fill="currentColor"><path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"></path><path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"></path></svg>`,
+		cameraVideo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="${iconSize}" height="${iconSize}" fill="currentColor"><path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z"></path></svg>`,
+		heart: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="${iconSize}" height="${iconSize}" fill="currentColor"><path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"></path></svg>`,
+		people: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="${iconSize}" height="${iconSize}" fill="currentColor"><path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"></path></svg>`,
+		cart: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="${iconSize}" height="${iconSize}" fill="currentColor"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path></svg>`,
+	}
+	type Icons = typeof icons
+
+	const tabs = {
+		chat: { icon: icons.chat, content: 'Chat Content' },
+		lifeSaver: { icon: icons.lifeSaver, content: 'lifeSaver Content' },
+		document: { icon: icons.document, content: 'document Content' },
+		cameraVideo: { icon: icons.cameraVideo, content: 'cameraVideo Content' },
+		heart: { icon: icons.heart, content: 'heart Content' },
+		people: { icon: icons.people, content: 'people Content' },
+		cart: {
+			icon: icons.cart,
+			content: `<div>
+									<div>New York. 112W 34thSt, Manhattan</div>
+									<div>Know our location and affiliates in New York. Contact us today</div>
+								</div>`,
+		},
+	}
+
+	type Tabs = typeof tabs
+
+	let currentTab: keyof Tabs = 'cart'
+
+	type ButtonPros = { children: string; tab: keyof Tabs; active: boolean }
+
+	function getButton({ children, tab, active }: ButtonPros) {
+		const button = document.createElement('button')
+		if (active) {
+			button.style.color = 'green'
+			button.style.backgroundColor = 'lightgreen'
+		}
+		button.style.padding = '5px'
+		button.dataset.tab = tab
+		button.innerHTML = children
+		return button
+	}
+	function generateControlsDiv() {
+		const controlDiv = document.createElement('div')
+		controlDiv.style.display = 'flex'
+		controlDiv.style.flexDirection = 'column'
+		for (const icon in icons) {
+			const key = icon as keyof Icons
+			controlDiv.append(
+				getButton({
+					children: icons[key],
+					tab: key,
+					active: key === currentTab,
+				})
+			)
+		}
+
+		return controlDiv
+	}
+
+	function generateInfoWindow(content: string) {
+		return new InfoWindow({
+			content: `<div id="map-info">
+										${content}
+									</div>`,
+			ariaLabel: 'Uluru',
+		})
+	}
+	let infowindow = generateInfoWindow(tabs[currentTab].content)
+	async function initMap() {
+		try {
+			const mapOptions = {
+				mapId: '794a3bfe1b138b52',
+				center: {
+					lat: 40.754461721314634,
+					lng: -73.98821454599212,
+				},
+				zoom: 12,
+			}
+
+			const map = new Map(document.getElementById('map'), mapOptions)
+			const marker = new Marker({
+				position: mapOptions.center,
+				map,
+				title: 'Food Store!!',
+				icon: {
+					url: '/assets/map_marker.svg',
+					anchor: new Point(0, 20),
+				},
+			})
+
+			marker.addListener('click', () => {
+				infowindow.open({
+					anchor: marker,
+					map,
+				})
+			})
+			map.controls[ControlPosition.RIGHT_CENTER].push(generateControlsDiv())
+		} catch (error) {
+			console.log('Problem to load map or marker', error)
+		}
+	}
+
+	initMap()
+</script>
+
+<style lang="scss">
+	.map_section {
+		position: relative;
+		#map {
+			height: 71.4rem;
+		}
+	}
+</style>
